@@ -1,3 +1,6 @@
+import java.awt.event.KeyEvent;
+import java.util.Set;
+
 import static utils.Constants.*;
 
 public class Player extends Sprite {
@@ -9,5 +12,20 @@ public class Player extends Sprite {
     @Override
     public void tick() {
 
+    }
+
+    public void handleActiveKeys(Set<Integer> activeKeyCodes) {
+        if (activeKeyCodes.contains(KeyEvent.VK_W)) {
+            getPos().y -= PLAYER_SPEED;
+        }
+        if (activeKeyCodes.contains(KeyEvent.VK_S)) {
+            getPos().y += PLAYER_SPEED;
+        }
+        if (activeKeyCodes.contains(KeyEvent.VK_A)) {
+            getPos().x -= PLAYER_SPEED;
+        }
+        if (activeKeyCodes.contains(KeyEvent.VK_D)) {
+            getPos().x += PLAYER_SPEED;
+        }
     }
 }
