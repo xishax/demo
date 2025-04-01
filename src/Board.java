@@ -15,7 +15,8 @@ public class Board extends JPanel implements ActionListener {
         setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
         setBackground(Color.CYAN);
 
-        sprites = new ArrayList<>();
+        Player player = new Player();
+        sprites = new ArrayList<>(List.of(player));
 
         new Timer(TICK_DELAY, this).start();
     }
@@ -34,7 +35,7 @@ public class Board extends JPanel implements ActionListener {
         super.paint(graphics);
 
         for (Sprite sprite : sprites) {
-            // draw the sprite
+            sprite.draw(graphics, this);
         }
     }
 }
